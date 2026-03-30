@@ -1,83 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Edwin Raj | QA Engineer</title>
   <style>
     body {
-      font-family: Arial;
       margin: 0;
+      font-family: Arial;
       background: #0f172a;
       color: white;
     }
+
     header {
       text-align: center;
-      padding: 40px;
-      background: #1e293b;
+      padding: 50px;
+      background: linear-gradient(90deg, #0ea5e9, #6366f1);
     }
+
     h1 { margin: 0; }
-    section {
-      padding: 30px;
+
+    .container {
+      padding: 20px;
     }
+
     .card {
       background: #1e293b;
       padding: 20px;
-      margin: 15px 0;
-      border-radius: 10px;
+      margin: 20px 0;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
     }
-    a { color: #38bdf8; }
+
+    .card:hover {
+      transform: scale(1.03);
+      background: #334155;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #38bdf8;
+      color: black;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    a {
+      color: #38bdf8;
+    }
   </style>
+
+  <script>
+    function toggle(id) {
+      let el = document.getElementById(id);
+      el.classList.toggle("hidden");
+    }
+  </script>
 </head>
+
 <body>
 
 <header>
-  <h1>Edwin Raj</h1>
+  <h1>Edwin Raj A</h1>
   <p>Senior QA Engineer | Automation | Playwright | API Testing</p>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    QA Engineer with 5+ years of experience in manual and automation testing across web, mobile, and API layers.
-  </p>
-</section>
-
-<section>
-  <h2>Skills</h2>
-  <div class="card">
-    Playwright, Cypress, Selenium, Appium, Postman, MySQL, JavaScript, Java
-  </div>
-</section>
-
-<section>
-  <h2>Projects</h2>
+<div class="container">
 
   <div class="card">
-    <h3>Jumingo</h3>
-    <p>Logistics platform for shipment booking and courier comparison.</p>
-    <p>Worked on end-to-end QA, automation, API testing.</p>
+    <h2>About Me</h2>
+    <p>Senior QA Engineer with 5+ years experience in web, mobile and API testing.</p>
   </div>
 
   <div class="card">
-    <h3>Amazon Dolphin App</h3>
-    <p>Mobile app for delivery station operations.</p>
-    <p>Performed mobile testing and automation.</p>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Playwright</span><span>Cypress</span><span>Selenium</span>
+      <span>Appium</span><span>Postman</span><span>MySQL</span>
+      <span>JavaScript</span><span>Java</span>
+    </div>
   </div>
 
-</section>
+  <div class="card" onclick="toggle('jumingo')">
+    <h2>Jumingo Project (Click to Expand)</h2>
+    <div id="jumingo" class="hidden">
+      <p>Owned end-to-end QA, automation, API testing, and release validation.</p>
+    </div>
+  </div>
 
-<section>
-  <h2>Achievements</h2>
+  <div class="card" onclick="toggle('amazon')">
+    <h2>Amazon Dolphin App (Click to Expand)</h2>
+    <div id="amazon" class="hidden">
+      <p>Mobile testing and automation using Appium on Android devices.</p>
+    </div>
+  </div>
+
   <div class="card">
-    🏆 North Star Award – QA of the Year (Talentship)
+    <h2>Achievements</h2>
+    <p>🏆 North Star Award – QA of the Year</p>
+    <p>🏆 Amazon RNR Award</p>
   </div>
-</section>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: your-email@gmail.com</p>
-  <p>GitHub: <a href="#">Add your link</a></p>
-</section>
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Email: your-email@gmail.com</p>
+    <p>GitHub: <a href="#">Add your link</a></p>
+  </div>
+
+</div>
 
 </body>
 </html>
