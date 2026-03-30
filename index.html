@@ -24,18 +24,24 @@
       padding: 20px;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
+   .card {
+  position: relative; 
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  transition: 0.4s;
+  cursor: pointer;
 
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+}
     .card:hover {
-      transform: scale(1.03);
-      background: #334155;
-    }
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+
 
     .skills span {
       display: inline-block;
@@ -77,6 +83,32 @@
   background: #0ea5e9;
   transform: scale(1.05);
 }
+    .skills-card {
+  background: linear-gradient(135deg, #064e3b, #022c22);
+}
+
+.experience-card {
+  background: linear-gradient(135deg, #312e81, #1e1b4b);
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, #713f12, #422006);
+}
+
+.contact-card {
+  background: linear-gradient(135deg, #831843, #4c0519);
+}
+    .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
   </style>
 
   <script>
@@ -114,7 +146,7 @@
     </p>
   </div>
 
-  <div class="card fade-in">
+<div class="card fade-in skills-card">
     <h2>Skills</h2>
     <div class="skills">
       <span>Java</span><span>JavaScript</span><span>Playwright</span>
@@ -138,7 +170,7 @@
     </ul>
   </div>
 
-  <div class="card fade-in">
+<div class="card fade-in experience-card">
     <h2>Experience</h2>
 
     <h3>Jumingo (Logistics Platform)</h3>
@@ -163,7 +195,7 @@
 
   </div>
 
-  <div class="card fade-in">
+<div class="card fade-in achievement-card">
     <h2>Achievements</h2>
     <ul>
       <li>🏆 North Star Award – QA of the Year (Talentship – 2025)</li>
@@ -187,7 +219,7 @@
     <p>Sri Krishna Engineering College, Chennai (2013–2017)</p>
   </div>
 
- <div class="card fade-in">
+<div class="card fade-in contact-card">
   <h2>Contact</h2>
   <p>Email: edwinrajcool@gmail.com</p>
   <p>GitHub: <a href="#">https://github.com/EdwinRaj14</a></p>
