@@ -34,7 +34,7 @@
     }
 
     .card {
-      position: relative; 
+      position: relative;
       padding: 20px;
       margin: 20px 0;
       border-radius: 15px;
@@ -47,6 +47,25 @@
     .card:hover {
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    }
+
+    /* Foldable content */
+    .card-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease;
+    }
+
+    .card.active .card-content {
+      max-height: 500px;
+    }
+
+    .arrow {
+      transition: transform 0.3s;
+    }
+
+    .card.active .arrow {
+      transform: rotate(180deg);
     }
 
     .skills span {
@@ -89,7 +108,7 @@
       transform: scale(1.05);
     }
 
-    /* Gradient Sections */
+    /* Gradient sections */
     .skills-card {
       background: linear-gradient(135deg, #064e3b, #022c22);
     }
@@ -121,79 +140,114 @@
         observer.observe(el);
       });
     };
+
+    function toggleCard(element) {
+      document.querySelectorAll(".card").forEach(card => {
+        if (card !== element) {
+          card.classList.remove("active");
+        }
+      });
+
+      element.classList.toggle("active");
+    }
   </script>
 </head>
 
 <body>
 
 <header>
-  <!-- ✅ PROFILE IMAGE -->
   <img src="profile.jpg" class="profile-pic" />
-
   <h1>Edwin Raj A</h1>
   <p>Senior QA Engineer | 6 Years Experience</p>
 </header>
 
 <div class="container">
 
-  <div class="card fade-in">
-    <h2>About Me</h2>
-    <p>
-      Senior QA Engineer with 5+ years of experience owning end-to-end quality across web, mobile, and API platforms.
-      Strong expertise in manual and automation testing using Playwright, Cypress, and Appium.
-      Proven ability to drive automation initiatives and ensure high-quality releases.
-    </p>
-  </div>
-
-  <div class="card fade-in skills-card">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>Java</span><span>JavaScript</span><span>Playwright</span>
-      <span>Cypress</span><span>Selenium</span><span>Appium</span>
-      <span>TestNG</span><span>Mocha</span><span>Postman</span>
-      <span>Insomnia</span><span>MySQL</span><span>Jira</span>
-      <span>TestRail</span><span>Qase</span><span>Xray</span>
-      <span>Datadog</span><span>VS Code</span><span>IntelliJ</span>
+  <!-- About -->
+  <div class="card fade-in" onclick="toggleCard(this)">
+    <h2>About Me <span class="arrow">⬇️</span></h2>
+    <div class="card-content">
+      <p>
+        Senior QA Engineer with 5+ years of experience owning end-to-end quality across web, mobile, and API
+platforms. Strong expertise in both manual and automation testing, with hands-on experience in Cypress,
+Playwright, and Appium using JavaScript. Proven ability to define test strategies, drive automation
+initiatives, and ensure high-quality releases through early risk identification, backend validation, and
+cross-functional collaboration. Adept at working in Agile environments and influencing product quality
+across the full software development lifecycle.
+      </p>
     </div>
   </div>
 
-  <div class="card fade-in experience-card">
-    <h2>Experience</h2>
-
-    <h3>Jumingo</h3>
-    <ul>
-      <li>Owned end-to-end QA and release sign-off</li>
-      <li>Manual + Automation testing</li>
-      <li>API + Backend validation</li>
-      <li>Cypress automation</li>
-    </ul>
-
-    <h3>Amazon – Dolphin App</h3>
-    <ul>
-      <li>Mobile testing (Android)</li>
-      <li>Appium automation</li>
-      <li>API validation</li>
-    </ul>
+  <!-- Skills -->
+  <div class="card fade-in skills-card" onclick="toggleCard(this)">
+    <h2>Skills <span class="arrow">⬇️</span></h2>
+    <div class="card-content">
+      <div class="skills">
+        <span>Java</span><span>JavaScript</span><span>Playwright</span>
+        <span>Cypress</span><span>Selenium</span><span>Appium</span>
+        <span>TestNG</span><span>Mocha</span><span>Postman</span>
+        <span>MySQL</span><span>Jira</span>
+      </div>
+    </div>
   </div>
 
-  <div class="card fade-in achievement-card">
-    <h2>Achievements</h2>
-    <ul>
-      <li>🏆 North Star Award – QA of the Year</li>
-      <li>🏆 Amazon RNR Award</li>
-    </ul>
+  <!-- Experience -->
+  <div class="card fade-in experience-card" onclick="toggleCard(this)">
+    <h2>Experience <span class="arrow">⬇️</span></h2>
+    <div class="card-content">
+
+      <h3>Jumingo</h3>
+      <ul>
+        <li>Owned end-to-end QA for a web-based logistics platform, covering requirement analysis, test strategy,
+execution, defect management, and release sign-off</li>
+        <li>Reviewed requirements and acceptance criteria early, identifying gaps, edge cases, and risk areas to
+improve test coverage and release quality</li>
+        <li>Performed manual testing (functional, regression, smoke, exploratory, and release testing) across UI,
+API, and backend systems</li>
+        <li>Validated end-to-end workflows across web UI, APIs, and backend systems, ensuring data
+consistency and system reliability</li>
+        <li>Conducted API testing using Postman and backend validation using SQL queries, ensuring accurate
+data flow and integrity</li>
+      </ul>
+
+      <h3>Amazon – Dolphin App</h3>
+      <ul>
+        <li>Ensured quality of a mission-critical mobile application used in last-mile logistics operations</li>
+        <li>Performed end-to-end testing across mobile (Android), APIs, and backend systems</li>
+        <li>Executed manual testing including functional, regression, exploratory, and release validation for
+complex workflows</li>
+        <li>Designed and developed automation test scripts for scalable and reusable test execution</li>
+        <li>Conducted mobile testing on real devices, validating performance, usability, and reliability</li>
+      </ul>
+
+    </div>
   </div>
 
-  <div class="card fade-in contact-card">
-    <h2>Contact</h2>
-    <p>Email: edwinrajcool@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/EdwinRaj14">EdwinRaj14</a></p>
+  <!-- Achievements -->
+  <div class="card fade-in achievement-card" onclick="toggleCard(this)">
+    <h2>Achievements <span class="arrow">⬇️</span></h2>
+    <div class="card-content">
+      <ul>
+        <li>🏆 North Star Award – QA of the Year</li>
+        <li>🏆 Amazon RNR Award</li>
+      </ul>
+    </div>
+  </div>
 
-    <br>
+  <!-- Contact -->
+  <div class="card fade-in contact-card" onclick="toggleCard(this)">
+    <h2>Contact <span class="arrow">⬇️</span></h2>
+    <div class="card-content">
+      <p>Email: edwinrajcool@gmail.com</p>
+      <p>Mobile: 7845704938@gmail.com</p>
+      <p>GitHub: <a href="https://github.com/EdwinRaj14">EdwinRaj14</a></p>
 
-    <a href="EDWIN_RAJ_A_QAE.pdf" download class="resume-btn">
-      📄 Download Resume
-    </a>
+      <br>
+
+      <a href="Edwin_Raj_QA_Resume.pdf" download class="resume-btn">
+        📄 Download Resume
+      </a>
+    </div>
   </div>
 
 </div>
