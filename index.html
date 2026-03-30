@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Edwin Raj | QA Engineer</title>
+  <title>Edwin Raj | Senior QA Engineer</title>
+
   <style>
     body {
       margin: 0;
@@ -28,7 +29,6 @@
       margin: 20px 0;
       border-radius: 12px;
       transition: 0.3s;
-      cursor: pointer;
     }
 
     .card:hover {
@@ -45,20 +45,38 @@
       border-radius: 20px;
     }
 
-    .hidden {
-      display: none;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
     }
 
-    a {
-      color: #38bdf8;
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    a { color: #38bdf8; }
+
+    ul {
+      padding-left: 20px;
     }
   </style>
 
   <script>
-    function toggle(id) {
-      let el = document.getElementById(id);
-      el.classList.toggle("hidden");
-    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    });
+
+    window.onload = () => {
+      document.querySelectorAll(".fade-in").forEach(el => {
+        observer.observe(el);
+      });
+    };
   </script>
 </head>
 
@@ -66,49 +84,97 @@
 
 <header>
   <h1>Edwin Raj A</h1>
-  <p>Senior QA Engineer | Automation | Playwright | API Testing</p>
+  <p>Senior QA Engineer | 6 Years Experience</p>
 </header>
 
 <div class="container">
 
-  <div class="card">
+  <div class="card fade-in">
     <h2>About Me</h2>
-    <p>Senior QA Engineer with 5+ years experience in web, mobile and API testing.</p>
+    <p>
+      Senior QA Engineer with 5+ years of experience owning end-to-end quality across web, mobile, and API platforms.
+      Strong expertise in manual and automation testing using Playwright, Cypress, and Appium.
+      Proven ability to drive automation initiatives and ensure high-quality releases.
+    </p>
   </div>
 
-  <div class="card">
+  <div class="card fade-in">
     <h2>Skills</h2>
     <div class="skills">
-      <span>Playwright</span><span>Cypress</span><span>Selenium</span>
-      <span>Appium</span><span>Postman</span><span>MySQL</span>
-      <span>JavaScript</span><span>Java</span>
+      <span>Java</span><span>JavaScript</span><span>Playwright</span>
+      <span>Cypress</span><span>Selenium</span><span>Appium</span>
+      <span>TestNG</span><span>Mocha</span><span>Postman</span>
+      <span>Insomnia</span><span>MySQL</span><span>Jira</span>
+      <span>TestRail</span><span>Qase</span><span>Xray</span>
+      <span>Datadog</span><span>VS Code</span><span>IntelliJ</span>
     </div>
   </div>
 
-  <div class="card" onclick="toggle('jumingo')">
-    <h2>Jumingo Project (Click to Expand)</h2>
-    <div id="jumingo" class="hidden">
-      <p>Owned end-to-end QA, automation, API testing, and release validation.</p>
-    </div>
+  <div class="card fade-in">
+    <h2>Testing Expertise</h2>
+    <ul>
+      <li>Functional, Regression, Smoke, Exploratory Testing</li>
+      <li>Web, Mobile, API Testing</li>
+      <li>End-to-End Workflow Validation</li>
+      <li>Backend / Data Validation</li>
+      <li>Defect Lifecycle Management</li>
+      <li>Agile / Scrum</li>
+    </ul>
   </div>
 
-  <div class="card" onclick="toggle('amazon')">
-    <h2>Amazon Dolphin App (Click to Expand)</h2>
-    <div id="amazon" class="hidden">
-      <p>Mobile testing and automation using Appium on Android devices.</p>
-    </div>
+  <div class="card fade-in">
+    <h2>Experience</h2>
+
+    <h3>Jumingo (Logistics Platform)</h3>
+    <ul>
+      <li>Owned end-to-end QA including requirement analysis, test strategy, and release sign-off</li>
+      <li>Performed manual testing (functional, regression, smoke, exploratory)</li>
+      <li>Validated UI, API, and backend workflows</li>
+      <li>API testing using Postman and backend validation using SQL</li>
+      <li>Developed automation using Cypress</li>
+      <li>Provided test reports and risk assessments</li>
+      <li>Mentored QA team members</li>
+    </ul>
+
+    <h3>Amazon – Dolphin App (Mobile)</h3>
+    <ul>
+      <li>Performed mobile testing on Android devices</li>
+      <li>Worked on Appium automation</li>
+      <li>Executed API and backend validation</li>
+      <li>Performed root cause analysis and defect tracking</li>
+      <li>Participated in Agile ceremonies</li>
+    </ul>
+
   </div>
 
-  <div class="card">
+  <div class="card fade-in">
     <h2>Achievements</h2>
-    <p>🏆 North Star Award – QA of the Year</p>
-    <p>🏆 Amazon RNR Award</p>
+    <ul>
+      <li>🏆 North Star Award – QA of the Year (Talentship – 2025)</li>
+      <li>🏆 Amazon RNR Award & Quarter Back Champion</li>
+    </ul>
   </div>
 
-  <div class="card">
+  <div class="card fade-in">
+    <h2>Focus Area</h2>
+    <ul>
+      <li>UI & API Automation</li>
+      <li>Web Application Testing</li>
+      <li>API Testing & Data Validation</li>
+      <li>AI</li>
+    </ul>
+  </div>
+
+  <div class="card fade-in">
+    <h2>Education</h2>
+    <p>Bachelor of Engineering – Civil Engineering</p>
+    <p>Sri Krishna Engineering College, Chennai (2013–2017)</p>
+  </div>
+
+  <div class="card fade-in">
     <h2>Contact</h2>
-    <p>Email: your-email@gmail.com</p>
-    <p>GitHub: <a href="#">Add your link</a></p>
+    <p>Email: edwinrajcool@gmail.com</p>
+    <p>GitHub: <a href="#">https://github.com/EdwinRaj14</a></p>
   </div>
 
 </div>
